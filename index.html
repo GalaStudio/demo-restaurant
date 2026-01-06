@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Restaurant | Demo</title>
+<meta name="description" content="Demo website for an elegant and professional restaurant.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#e6dfd4;      /* más oscuro y elegante */
+  --surface:#f0ebe4; /* mejor contraste */
+  --accent:#9c6b43;
+  --accent-soft:#e4d3bd;
+  --text-main:#3a342e;
+  --text-soft:#7a6f65;
+  --text-glow:#b48a63;
+  --radius:22px;
+  --shadow:0 30px 70px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 400px at 20% -10%, #efe5d8 0%, transparent 60%),
+    radial-gradient(700px 400px at 90% 20%, #d8c7b1 0%, transparent 55%),
+    var(--bg);
+  color:var(--text-main);
+  font-family:Poppins,system-ui;
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:32px;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(220,208,190,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.05);
+  z-index:10;
+}
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  font-family:"Playfair Display",serif;
+  font-size:22px;
+  font-weight:600;
+  background:linear-gradient(90deg,#8b623f,#c9a27a,#8b623f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.btn{
+  padding:14px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#8b623f,#c9a27a);
+  color:#fff;
+  font-weight:500;
+  box-shadow:0 14px 34px rgba(156,107,67,.35);
+  transition:.2s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:64px;
+  padding:100px 0;
+  align-items:center;
+}
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:52px;
+  line-height:1.1;
+  margin:0 0 18px;
+  background:linear-gradient(90deg,#6f4c32,#caa27a,#6f4c32);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  font-size:18px;
+  color:var(--text-soft);
+  max-width:520px;
+}
+.hero-card{
+  background:linear-gradient(135deg,#e2d6c6,#f0e7dc);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+/* SECTIONS */
+.section{padding:100px 0}
+.section h2{
+  font-family:"Playfair Display",serif;
+  font-size:40px;
+  margin:0 0 14px;
+  background:linear-gradient(90deg,#7b5538,#d6b28b,#7b5538);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section .sub{
+  color:var(--text-soft);
+  max-width:520px;
+  margin-bottom:50px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:34px;
+}
+.card{
+  background:linear-gradient(135deg,#e2d6c6,#f0e7dc);
+  border-radius:var(--radius);
+  padding:38px;
+  box-shadow:var(--shadow);
+}
+
+.card h3{
+  font-family:"Playfair Display",serif;
+  margin-top:0;
+  color:var(--text-glow);
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.gallery img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+/* CTA */
+.cta{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.85),rgba(241,232,221,.85)),
+    url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9');
+  background-size:cover;
+  background-position:center;
+  border-radius:34px;
+  padding:90px 30px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.cta h2{
+  font-family:"Playfair Display",serif;
+  margin-top:0;
+}
+
+/* FOOTER */
+footer{
+  padding:36px 0;
+  text-align:center;
+  font-size:13px;
+  color:#8a7f74;
+  border-top:1px solid rgba(0,0,0,.06);
+}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero,.grid,.gallery{grid-template-columns:1fr}
+  .hero h1{font-size:40px}
+}
+.contact-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:999;
+}
+
+.contact-float a{
+  padding:12px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:500;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  background:linear-gradient(135deg,#8b623f,#c9a27a);
+  color:#fff;
+}
+
+.contact-float a.social{
+  background:linear-gradient(135deg,#bfa07a,#e3c9a6);
+  color:#3b342c;
+}
+
+/* ICONS */
+.contact-float i{
+  font-size:18px;
+}
+
+/* SCROLLBAR PREMIUM */
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:linear-gradient(180deg,#f3efe8,#e7dccf);
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#8b623f,#c9a27a);
+  border-radius:999px;
+  border:2px solid #f3efe8;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg,#7a5536,#b8926b);
+}
+
+/* Firefox */
+*{
+  scrollbar-width:thin;
+  scrollbar-color:#9c6b43 #f3efe8;
+}
+.gallery img{
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Elite Restaurant</div>
+    <a href="#contact" class="btn">Get this website</a>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <div>
+    <h1>Fine dining in a warm and sophisticated atmosphere</h1>
+    <p>
+      A gastronomic experience where every detail conveys elegance, flavor, and exclusivity.
+    </p>
+  </div>
+  <div class="hero-card">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0" alt="Elegant restaurant" style="width:100%;display:block">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Our essence</h2>
+  <p class="sub">Refined cuisine with its own identity.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Signature cuisine</h3>
+      <p>Dishes crafted with technique, passion, and creativity.</p>
+    </div>
+    <div class="card">
+      <h3>Elegant atmosphere</h3>
+      <p>Spaces designed to be enjoyed without rush.</p>
+    </div>
+    <div class="card">
+      <h3>Selected ingredients</h3>
+      <p>Fresh products carefully selected.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Gallery</h2>
+  <p class="sub">Moments that awaken the senses.</p>
+
+  <div class="gallery">
+  <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Gourmet main dish">
+  <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="Fine dining appetizer">
+  <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Elegant dessert">
+</div>
+
+</section>
+
+<section id="contact" class="section">
+  <div class="cta">
+    <h2>Would you like a website like this for your restaurant?</h2>
+    <p>This is a demo. The design can be fully customized.</p>
+    <a href="mailto:your@email.com" class="btn">Contact me</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Premium Restaurant Demo
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- CONTACT FLOAT -->
+<div class="contact-float">
+  <a href="https://wa.me/573000000000" target="_blank" title="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <a href="mailto:your@email.com" title="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="#" class="social" title="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a href="#" class="social" title="Facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+  <a href="#" class="social" title="X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+</div>
+
+</body>
+</html>
