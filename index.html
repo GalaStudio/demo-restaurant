@@ -135,6 +135,16 @@ header{
   padding:38px;
   box-shadow:var(--shadow);
 }
+.card{
+  transition: transform .25s ease, box-shadow .25s ease;
+  cursor: pointer;
+}
+
+.card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 40px 90px rgba(0,0,0,.15);
+}
+
 
 .card h3{
   font-family:"Playfair Display",serif;
@@ -152,7 +162,15 @@ header{
   width:100%;
   border-radius:20px;
   box-shadow:var(--shadow);
+  cursor: zoom-in;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
+
+.gallery img:hover{
+  transform: scale(1.05);
+  box-shadow: 0 35px 80px rgba(0,0,0,.18);
+}
+
 
 /* CTA */
 .cta{
@@ -319,12 +337,45 @@ footer{
   © <span id="year"></span> GalaStudio — Demo Website
 </footer>
 
+<!-- IMAGE MODAL -->
+<div id="imgModal" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+  <img id="modalImg" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+    box-shadow:0 40px 100px rgba(0,0,0,.6);
+  ">
+</div>
+
 <script>
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+
+document.querySelectorAll(".gallery img").forEach(img=>{
+  img.addEventListener("click",()=>{
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+modal.addEventListener("click",()=>{
+  modal.style.display = "none";
+});
+
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 <!-- CONTACT FLOAT -->
 <div class="contact-float">
+
   <a href="https://wa.me/573000000000" target="_blank" title="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
@@ -343,6 +394,24 @@ document.getElementById("year").textContent = new Date().getFullYear();
     <i class="fa-brands fa-x-twitter"></i>
   </a>
 </div>
+<!-- IMAGE MODAL -->
+<div id="imgModal" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+  <img id="modalImg" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+    box-shadow:0 40px 100px rgba(0,0,0,.6);
+  ">
+</div>
 
 </body>
 </html>
+
